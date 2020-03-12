@@ -1,0 +1,18 @@
+.cadre {
+    height: "300px"
+}
+
+.img-preview {
+    width: "100px";
+    height: "100px";
+}
+
+table,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.clickable {
+    cursor: pointer;
+}

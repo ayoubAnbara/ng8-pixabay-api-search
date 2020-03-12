@@ -1,0 +1,60 @@
+<p></p>
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Gallery</div>
+        <div class="panel-body">
+            <form #f="ngForm" (ngSubmit)="onSearch(f.value)">
+                <div class="form-group">
+                    <label for="">search by keyword:</label>
+                    <input type="text" name="keyword" ngModel required>
+                    <button type="submit" class="btn btn-primary">search</button>
+                </div>
+            </form>
+            <!-- <div class="container-fluid"> -->
+            <div class="row">
+                <div *ngFor="let p of pagePhotos?.hits" class="col-md-4">
+                    <!-- <div > -->
+                    <div class="panel panel-primary cadre">
+                        <div class="panel-heading">tags: {{p.tags}}</div>
+                        <div class="panel-body">
+                            <img class="img-preview" src="{{p.previewURL}}" alt="alt" width="100px" height="100px">
+                            <table style="float: right;">
+                                <tr>
+                                    <td>views</td>
+                                    <td>{{p.views}}</td>
+                                </tr>
+                                <tr>
+                                    <td>downloads</td>
+                                    <td>{{p.downloads}}</td>
+                                </tr>
+                                <tr>
+                                    <td>favorites</td>
+                                    <td>{{p.favorites}}</td>
+                                </tr>
+                                <tr>
+                                    <td>likes</td>
+                                    <td>{{p.likes}}</td>
+                                </tr>
+                                <tr>
+                                    <td>comments</td>
+                                    <td>{{p.comments}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+                    <!-- </div> -->
+
+                </div>
+            </div>
+
+            <div class="row">
+                <ul class="nav nav-pills">
+                    <li [ngClass]="{'active': currentPage==i+1}" *ngFor="let n of pages; let i=index" class="clickable">
+                        <a (click)="gotoPage(i)">{{i+1}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
